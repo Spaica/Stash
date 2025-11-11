@@ -8,15 +8,15 @@
 import Foundation
 
 // MARK: - Protocol
+//It's like an interface
 protocol BookFetching {
-    // Contratto: cerca una query in modo asincrono e può lanciare un errore
     func searchBooks(query: String) async throws -> APIResponse
 }
 
 // MARK: - Errors
 enum APIError: Error {
     case invalidURL
-    case invalidResponse
+    case invalidResponse(Int)
     case noData
     case decodingFailed(Error)
     

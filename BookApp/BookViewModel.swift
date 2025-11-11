@@ -7,25 +7,29 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 // ObservableObject rende la classe osservabile.
 class BookViewModel: ObservableObject {
     
-    // 1. STATO: Le proprietà che la View osserva per aggiornarsi.
-    @Published var books: [Book] = [] // Lista dei libri
-    @Published var isLoading: Bool = false // Stato di caricamento
-    @Published var errorMessage: String? // Messaggio di errore
-    @Published var searchText: String = "" // Input di ricerca dall'utente
+    // PROPRIETÀ DI STATO (Il "Cosa") ---
+    // Le proprietà che la View osserva per aggiornarsi.
+    @Published var books: [Book] = []
+    @Published var isLoading: Bool = false
+    @Published var errorMessage: String?
+    @Published var searchText: String = ""
     
-    // 2. DIPENDENZA INIETTATA: Usa il contratto BookFetching per la flessibilità.
+    // 2. DIPENDENZA (Il "Chi") ---
+    // Usa il contratto BookFetching
     private let apiService: BookFetching
     
-    // Iniezione della Dipendenza (DI) - Permette di usare APIService in produzione e MockService nei test
+    // 3. INIZIALIZZAZIONE (Il "Come si crea") ---
+    // Permette di usare APIService
     init(apiService: BookFetching = APIService()) {
         self.apiService = apiService
     }
     
-    // 3. LOGICA: Metodo per avviare la ricerca
+    // 4. LOGICA DI BUSINESS (L' "Azione") ---
     // @MainActor garantisce che l'aggiornamento dello stato (Published) avvenga sul thread principale
     @MainActor
     func search(query: String) {

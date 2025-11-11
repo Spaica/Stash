@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 //MARK: - Models
-
 //decodable is for decoding from json format, and identifiable because the item can be identified with the id
 
 struct APIResponse: Decodable {
