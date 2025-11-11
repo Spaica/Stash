@@ -8,9 +8,11 @@
 import Foundation
 import SwiftUI
 
+//MARK: - Models
+
 //decodable is for decoding from json format, and identifiable because the item can be identified with the id
 
-struct ApiResponse: Decodable {
+struct APIResponse: Decodable {
     var totalItems: Int
     var items: [Book]
 }
@@ -37,11 +39,11 @@ struct Info: Decodable {
 
 struct ISBN: Decodable {
     var type: String
-    var indentifier: String
+    var identifier: String
 }
 
 struct Links: Decodable{
-    var smallThumbnail: URL
+    var smallThumbnail: URL?
 }
 
 
