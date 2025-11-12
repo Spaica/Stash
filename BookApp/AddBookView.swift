@@ -118,7 +118,7 @@ struct BookCardView: View {
         HStack(alignment: .top, spacing: 15) {
             
             //1: Image
-            if let url = book.volumeInfo.imageLinks.smallThumbnail {
+            if let url = book.volumeInfo.imageLinks?.smallThumbnail {
                 AsyncImage(url: url) { phase in //load the image from the url without pausing the UI, phase is a parameter used to see it the image is empty, loaded successfully or error
                     if let image = phase.image {
                         image.resizable()
