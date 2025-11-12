@@ -40,7 +40,7 @@ class BookViewModel: ObservableObject {
         Task {
             do {
                 let response = try await apiService.searchBooks(query: query)
-                self.books = response.items
+                self.books = response.items ?? []
                 self.isLoading = false
             } catch {
                 self.errorMessage = "Errore: \(error.localizedDescription)"

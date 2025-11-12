@@ -142,7 +142,7 @@ struct BookCardView: View {
             
             //2: Text
             VStack(alignment: .leading, spacing: 4) {
-                Text(book.volumeInfo.title)
+                Text(book.volumeInfo.title ?? "Untitled")
                     .font(.headline)
                     .lineLimit(2)
                 

@@ -23,7 +23,7 @@ struct Book: Decodable, Identifiable {
 }
 
 struct Info: Decodable {
-    var title: String
+    var title: String?
     var authors: [String]?
     var description: String?
     var publisher: String?
@@ -33,12 +33,12 @@ struct Info: Decodable {
     var categories: [String]?
     var maturityRating: String?
     var language: String?
-    var industryIdentifier: ISBN
+    var industryIdentifier: ISBN?
 }
 
 struct ISBN: Decodable {
-    var type: String
-    var identifier: String
+    var type: String?
+    var identifier: String?
 }
 
 struct Links: Decodable{
