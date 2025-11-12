@@ -23,8 +23,8 @@ class BookViewModel: ObservableObject {
     
     //constructor
     init(apiService: BookFetching = APIService()) {
-            self.apiService = apiService
-        }
+        self.apiService = apiService
+    }
     
     //@MainActor means that all the UI update (the published proprieties) inside this function will take place on the main thread
     @MainActor

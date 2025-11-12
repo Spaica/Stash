@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
+import Combine
 
+// MARK: - Library view
 struct LibraryView: View {
+    @StateObject var bookViewModel = BookViewModel()
+    
     var body: some View {
-        NavigationStack{
-            VStack {
-                
-            }.navigationTitle("Library")
-        }
     }
 }
 
