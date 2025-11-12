@@ -22,10 +22,10 @@ enum APIError: Error {
     
     var localizedDescription: String {
         switch self {
-        case .invalidURL: return "Errore: L'URL per la chiamata API non è valido."
-        case .invalidResponse: return "Errore di rete: Risposta HTTP non valida o status code non 200."
-        case .noData: return "Errore: Nessun dato ricevuto dal server."
-        case .decodingFailed(let error): return "Errore di decodifica JSON: \(error.localizedDescription)"
+        case .invalidURL: return "Error: The API call URL is not valid."
+        case .invalidResponse: return "Network error: HTTP responde not valid or status code not 200."
+        case .noData: return "Error: No data received from server"
+        case .decodingFailed(let error): return "Error on JSON decoding: \(error.localizedDescription)"
         }
     }
 }

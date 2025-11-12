@@ -13,7 +13,7 @@ import SwiftUI
 
 struct APIResponse: Decodable {
     var totalItems: Int
-    var items: [Book]
+    var items: [Book]?
 }
 
 
@@ -28,11 +28,11 @@ struct Info: Decodable {
     var description: String?
     var publisher: String?
     var publishedDate: String?
-    var imageLinks: Links
-    var pageCount: Int
+    var imageLinks: Links?
+    var pageCount: Int?
     var categories: [String]?
-    var maturityRating: String
-    var language: String
+    var maturityRating: String?
+    var language: String?
     var industryIdentifier: ISBN
 }
 
