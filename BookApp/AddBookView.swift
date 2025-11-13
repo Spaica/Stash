@@ -53,12 +53,15 @@ struct AddBookView: View {
                         )
                     } else {
                         //E: results
-                        
                         ScrollView {
                             LazyVStack(spacing: 15) {
                                 ForEach(bookViewModel.books) {
                                     book in
-                                    BookCardView(book: book)
+                                    NavigationLink{
+                                        BookDetailsView(book: book)
+                                    } label:{
+                                        BookCardView(book: book)
+                                    }
                                 }
                             }
                             .padding(.vertical, 8)
@@ -151,6 +154,7 @@ struct BookCardView: View {
                 Text(book.volumeInfo.title ?? "Untitled")
                     .font(.headline)
                     .lineLimit(2)
+                    .foregroundColor(.black)
                 
                 Text(authors)
                     .font(.subheadline)
@@ -160,6 +164,7 @@ struct BookCardView: View {
                 Text("\(book.volumeInfo.pageCount ?? 1) pages")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
+                    .foregroundColor(.black)
                 
                 if book.volumeInfo.maturityRating != "NOT_MATURE" {
                     HStack{
