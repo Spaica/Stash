@@ -41,8 +41,26 @@ struct ISBN: Decodable {
     var identifier: String?
 }
 
-struct Links: Decodable{
-    var smallThumbnail: URL?
+struct Links: Decodable {
+    private var smallThumbnailString: String?
+    var smallThumbnail: URL? {
+        guard let stringUrl = smallThumbnailString else {
+            return nil
+        }
+        
+        //convert string into URL forcing https
+        if var components = URLComponents(string: stringUrl) {
+            if components.scheme == "http" {
+                components.scheme = "https"
+            }
+            return components.url
+        }
+        return nil
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case smallThumbnailString = "smallThumbnail"
+    }
 }
 
 

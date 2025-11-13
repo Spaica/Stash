@@ -120,13 +120,19 @@ struct BookCardView: View {
             //1: Image
             if let url = book.volumeInfo.imageLinks?.smallThumbnail {
                 AsyncImage(url: url) { phase in //load the image from the url without pausing the UI, phase is a parameter used to see it the image is empty, loaded successfully or error
-                    if let image = phase.image {
-                        image.resizable()
-                            .aspectRatio(contentMode: .fill)
-                    } else {
-                        //placeholder
-                        BookPlaceholderView(iconName: "photo.fill")
-                            .opacity(0.7)
+                    Group{
+                        if let image = phase.image {
+                            image.resizable()
+                                .aspectRatio(contentMode: .fill)
+                        } else if phase.error != nil {
+                            //placeholder
+                            BookPlaceholderView(iconName: "xmark.octagon")
+                            
+                        }else{
+                            
+                            BookPlaceholderView(iconName: "photo.fill")
+                                .opacity(0.7)
+                        }
                     }
                 }
                 .frame(width: 70, height: 105)
@@ -149,6 +155,21 @@ struct BookCardView: View {
                 Text(authors)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
+                
+                
+                Text("\(book.volumeInfo.pageCount ?? 1) pages")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                
+                if book.volumeInfo.maturityRating != "NOT_MATURE" {
+                    HStack{
+                        Image(systemName: "exclamationmark.circle.fill")
+                            .foregroundColor(.red)
+                        Text("18+")
+                            .foregroundColor(.red)
+                    }
+                }
+                
                 Spacer()
             }
             Spacer()
