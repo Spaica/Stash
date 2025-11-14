@@ -54,6 +54,15 @@ struct BookDetails2View: View {
             .navigationTitle(book.volumeInfo.title ?? "Book Details")
             .navigationBarTitleDisplayMode(.inline)
             
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button("Remove"){
+                        libraryViewModel.removeBook(book)
+                        dismiss()
+                    }
+                }
+            }
+            
             VStack{
                 
                 Text(authors)

@@ -11,18 +11,18 @@ import SwiftUI
 //MARK: - Models
 //decodable is for decoding from json format, and identifiable because the item can be identified with the id
 
-struct APIResponse: Decodable {
+struct APIResponse: Codable {
     var totalItems: Int
     var items: [Book]?
 }
 
 
-struct Book: Decodable, Identifiable {
+struct Book: Codable, Identifiable {
     var id: String
     var volumeInfo: Info
 }
 
-struct Info: Decodable {
+struct Info: Codable {
     var title: String?
     var authors: [String]?
     var description: String?
@@ -36,12 +36,12 @@ struct Info: Decodable {
     var industryIdentifier: ISBN? //
 }
 
-struct ISBN: Decodable {
+struct ISBN: Codable {
     var type: String?
     var identifier: String?
 }
 
-struct Links: Decodable {
+struct Links: Codable {
     private var smallThumbnailString: String?
     private var thumbnailString: String?
     var smallThumbnail: URL? {
