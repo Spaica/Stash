@@ -32,8 +32,8 @@ struct Info: Decodable {
     var pageCount: Int?
     var categories: [String]?
     var maturityRating: String?
-    var language: String?
-    var industryIdentifier: ISBN?
+    var language: String? //
+    var industryIdentifier: ISBN? //
 }
 
 struct ISBN: Decodable {
@@ -43,10 +43,25 @@ struct ISBN: Decodable {
 
 struct Links: Decodable {
     private var smallThumbnailString: String?
+    private var thumbnailString: String?
     var smallThumbnail: URL? {
         guard let stringUrl = smallThumbnailString else {
             return nil
         }
+        
+        if var components = URLComponents(string: stringUrl) {
+            if components.scheme == "http" {
+                components.scheme = "https"
+            }
+            return components.url
+        }
+        return nil
+    }
+        
+        var thumbnail: URL? {
+            guard let stringUrl = thumbnailString else {
+                return nil
+            }
         
         //convert string into URL forcing https
         if var components = URLComponents(string: stringUrl) {
@@ -60,6 +75,7 @@ struct Links: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case smallThumbnailString = "smallThumbnail"
+        case thumbnailString = "thumbnail"
     }
 }
 

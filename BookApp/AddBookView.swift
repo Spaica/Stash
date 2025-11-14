@@ -71,16 +71,7 @@ struct AddBookView: View {
             }
             .navigationTitle("Add a book")
             
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        print("Close or new function tapped")
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
-                            .font(.title2)
-                    }
-                }
-            }
+            
         }
     }
     
@@ -167,7 +158,7 @@ struct BookCardView: View {
                     .foregroundColor(.black)
                 
                 if book.volumeInfo.maturityRating != "NOT_MATURE" {
-                    HStack{
+                    HStack(spacing: 0){
                         Image(systemName: "exclamationmark.circle.fill")
                             .foregroundColor(.red)
                         Text("18+")

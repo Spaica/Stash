@@ -10,9 +10,28 @@ import Combine
 
 // MARK: - Library view
 struct LibraryView: View {
-    @StateObject var bookViewModel = BookViewModel()
+    @State private var isShowingAddBookView = false
     
     var body: some View {
+        NavigationStack{
+            VStack{
+                
+            }
+            .navigationTitle("Library")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isShowingAddBookView = true
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.title2)
+                    }
+                }
+            }
+            .sheet(isPresented: $isShowingAddBookView){
+                AddBookView()
+            }
+        }
     }
 }
 
