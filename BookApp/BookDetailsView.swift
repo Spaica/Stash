@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BookDetailsView: View {
     let book : Book
-    var libraryViewModel = LibraryViewModel()
+    @EnvironmentObject var libraryViewModel : LibraryViewModel
     @Environment(\.dismiss) var dismiss
     
     var authors: String {
@@ -55,14 +55,14 @@ struct BookDetailsView: View {
             .navigationBarTitleDisplayMode(.inline)
             
             .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button("Save") {
-                                libraryViewModel.addBook(book)
-                                dismiss()
-                            }
-                            .disabled(libraryViewModel.isBookSaved(book))
-                        }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Save") {
+                        libraryViewModel.addBook(book)
+                        dismiss()
                     }
+                    .disabled(libraryViewModel.isBookSaved(book))
+                }
+            }
             
             VStack{
                 
@@ -99,14 +99,14 @@ struct BookDetailsView: View {
                 
                 Text("Language: " + (book.volumeInfo.language ?? "Unknown"))
                     .font(.footnote)
-                    
+                
                 Text("Categories: " + categories)
                     .font(.footnote)
                 
                 Divider()
                 Text("Description:")
                     .bold()
-                    
+                
                 
                 Text(book.volumeInfo.description ?? " ")
                     .padding(.horizontal)
@@ -126,8 +126,17 @@ struct BookDetailsView: View {
 }
 
 #Preview {
-    BookDetailsView(book: Book(
+    
+    // 1. Crea un'istanza di esempio del ViewModel della libreria
+    let sample = LibraryViewModel()
+    
+    // 2. Assicurati di avere un oggetto Book di esempio per la vista di dettaglio
+    let sampleBook = Book(
         id: "1",
         volumeInfo: Info(title: "Example", authors: ["Author"], description: "kuhAGSDFiuhwdfuioahwofuihwebhaujemnrgdjdhjdjwhfòjowhhdjfhnjadhjahdljkahdfkjadkfhahkdfhadfhjagdfhgahgf", imageLinks: nil)
-    ))
+    )
+    
+    // 3. Inietta il LibraryViewModel nella preview
+    return BookDetailsView(book: sampleBook)
+        .environmentObject(sample)
 }

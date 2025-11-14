@@ -57,11 +57,11 @@ struct Links: Decodable {
         }
         return nil
     }
-        
-        var thumbnail: URL? {
-            guard let stringUrl = thumbnailString else {
-                return nil
-            }
+    
+    var thumbnail: URL? {
+        guard let stringUrl = thumbnailString else {
+            return nil
+        }
         
         //convert string into URL forcing https
         if var components = URLComponents(string: stringUrl) {

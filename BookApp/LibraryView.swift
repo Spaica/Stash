@@ -10,12 +10,25 @@ import Combine
 
 // MARK: - Library view
 struct LibraryView: View {
+    @EnvironmentObject var libraryViewModel : LibraryViewModel
     @State private var isShowingAddBookView = false
     
     var body: some View {
         NavigationStack{
             VStack{
-                
+                if libraryViewModel.savedBooks.isEmpty {
+                    ContentUnavailableView("No Books Saved", systemImage: "book.fill")
+                } else {
+                    ForEach(libraryViewModel.savedBooks){
+                        book in
+                        NavigationLink{
+                            BookDetailsView(book: book)
+                        } label:{
+                            BookCardView(book: book)
+                        }
+                    }
+                    
+                }
             }
             .navigationTitle("Library")
             .toolbar {
@@ -35,6 +48,9 @@ struct LibraryView: View {
     }
 }
 
+
 #Preview {
-    LibraryView()
+    let sample = LibraryViewModel()
+    return LibraryView()
+        .environmentObject(sample)
 }
