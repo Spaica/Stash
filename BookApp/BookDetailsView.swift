@@ -9,6 +9,15 @@ import SwiftUI
 
 struct BookDetailsView: View {
     let book : Book
+    var libraryViewModel = LibraryViewModel()
+    @Environment(\.dismiss) var dismiss
+    
+    var authors: String {
+        if let authors = book.volumeInfo.authors, !authors.isEmpty {
+            return authors.joined(separator: ", ")
+        }
+        return "Unknown Author"
+    }
     
     var body: some View {
         ScrollView{
@@ -42,21 +51,20 @@ struct BookDetailsView: View {
                     
                 }
             }
+            .navigationTitle(book.volumeInfo.title ?? "Book Details")
+            .navigationBarTitleDisplayMode(.inline)
+            
+            .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button("Save") {
+                                libraryViewModel.addBook(book)
+                                dismiss()
+                            }
+                            .disabled(libraryViewModel.isBookSaved(book))
+                        }
+                    }
             
             VStack{
-                
-                var authors: String {
-                    if let authors = book.volumeInfo.authors, !authors.isEmpty {
-                        return authors.joined(separator: ", ")
-                    }
-                    return "Unknown Author"
-                }
-                
-                
-                Text(book.volumeInfo.title ?? "Untitled")
-                    .font(.headline)
-                    .lineLimit(2)
-                    .foregroundColor(.black)
                 
                 Text(authors)
                     .font(.subheadline)
@@ -86,6 +94,8 @@ struct BookDetailsView: View {
                     }
                     return "Unknown categories"
                 }
+                
+                Divider()
                 
                 Text("Language: " + (book.volumeInfo.language ?? "Unknown"))
                     .font(.footnote)
