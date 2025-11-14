@@ -12,6 +12,8 @@ struct AddBookView: View {
     //to manage the debounce option
     @State private var searchCancellable: AnyCancellable?
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
@@ -70,6 +72,17 @@ struct AddBookView: View {
                 }
             }
             .navigationTitle("Add a book")
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading){
+                    Button{
+                        dismiss()
+                    } label:{
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.title2)
+                            .foregroundColor(.gray)
+                    }
+                }
+            }
             
             
         }

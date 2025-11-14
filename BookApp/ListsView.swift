@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct QuotesView: View {
+struct ListsView: View {
     
     var body: some View {
-        Text("ciao")
+        Text("Organize your books in lists")
     }
 }
 
 #Preview {
-    QuotesView()
+    ListsView()
 }
 

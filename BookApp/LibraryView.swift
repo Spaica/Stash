@@ -15,34 +15,37 @@ struct LibraryView: View {
     
     var body: some View {
         NavigationStack{
-            VStack{
-                if libraryViewModel.savedBooks.isEmpty {
-                    ContentUnavailableView("No Books Saved", systemImage: "book.fill")
-                } else {
-                    ForEach(libraryViewModel.savedBooks){
-                        book in
-                        NavigationLink{
-                            BookDetailsView(book: book)
-                        } label:{
-                            BookCardView(book: book)
+            ScrollView{
+                VStack{
+                    if libraryViewModel.savedBooks.isEmpty {
+                        ContentUnavailableView("No Books Saved", systemImage: "book.fill")
+                            .padding(.top, 200)
+                    } else {
+                        ForEach(libraryViewModel.savedBooks){
+                            book in
+                            NavigationLink{
+                                BookDetails2View(book: book)
+                            } label:{
+                                BookCardView(book: book)
+                            }
+                        }
+                        
+                    }
+                }
+                .navigationTitle("Library")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            isShowingAddBookView = true
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .font(.title2)
                         }
                     }
-                    
                 }
-            }
-            .navigationTitle("Library")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        isShowingAddBookView = true
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
-                            .font(.title2)
-                    }
+                .sheet(isPresented: $isShowingAddBookView){
+                    AddBookView()
                 }
-            }
-            .sheet(isPresented: $isShowingAddBookView){
-                AddBookView()
             }
         }
     }

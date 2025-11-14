@@ -13,13 +13,22 @@ struct ContainerView: View {
             Tab("Library", systemImage: "books.vertical.fill"){
                 LibraryView()
             }
-            Tab("Quotes", systemImage: "quote.bubble.fill"){
-                QuotesView()
+            Tab("To read", systemImage: "book.fill"){
+                ToReadView()
+            }
+            Tab("Lists", systemImage: "text.below.folder"){
+                ListsView()
+            }
+            Tab("Settings", systemImage: "slider.horizontal.3"){
+                SettingsView()
             }
         }
     }
 }
 
 #Preview {
-    ContainerView()
+    let sampleLibraryVM = LibraryViewModel()
+    
+    return ContainerView()
+        .environmentObject(sampleLibraryVM)
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BookDetailsView: View {
+struct BookDetails2View: View {
     let book : Book
     @EnvironmentObject var libraryViewModel : LibraryViewModel
     @Environment(\.dismiss) var dismiss
@@ -53,16 +53,6 @@ struct BookDetailsView: View {
             }
             .navigationTitle(book.volumeInfo.title ?? "Book Details")
             .navigationBarTitleDisplayMode(.inline)
-            
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add") {
-                        libraryViewModel.addBook(book)
-                        dismiss()
-                    }
-                    .disabled(libraryViewModel.isBookSaved(book))
-                }
-            }
             
             VStack{
                 
@@ -137,6 +127,6 @@ struct BookDetailsView: View {
     )
     
     // 3. Inietta il LibraryViewModel nella preview
-    return BookDetailsView(book: sampleBook)
+    return BookDetails2View(book: sampleBook)
         .environmentObject(sample)
 }
