@@ -40,5 +40,7 @@ This is an iOS application developed using **SwiftUI** designed to allow users t
 | `APIService.swift` | Service/Model | Handles URL construction and execution of the asynchronous API request. |
 
 | `LibraryView.swift` | View | Displays the saved books and manages the presentation of the `AddBookView` modal. |
+
 | `AddBookView.swift` | View | Contains the search bar and implements the search debounce logic. |
+
 | `BookDetailsView.swift` / `BookDetails2View.swift` | View | Display book details and provide buttons for adding or removing the book from the library. |
