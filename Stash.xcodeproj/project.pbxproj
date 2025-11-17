@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		D56F8F6C2EBCB8FB0094ED5B /* BookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D56F8F6C2EBCB8FB0094ED5B /* Stash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D56F8F6E2EBCB8FB0094ED5B /* BookApp */ = {
+		D56F8F6E2EBCB8FB0094ED5B /* Stash */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BookApp;
+			path = Stash;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		D56F8F632EBCB8FB0094ED5B = {
 			isa = PBXGroup;
 			children = (
-				D56F8F6E2EBCB8FB0094ED5B /* BookApp */,
+				D56F8F6E2EBCB8FB0094ED5B /* Stash */,
 				D56F8F6D2EBCB8FB0094ED5B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,7 +40,7 @@
 		D56F8F6D2EBCB8FB0094ED5B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D56F8F6C2EBCB8FB0094ED5B /* BookApp.app */,
+				D56F8F6C2EBCB8FB0094ED5B /* Stash.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D56F8F6B2EBCB8FB0094ED5B /* BookApp */ = {
+		D56F8F6B2EBCB8FB0094ED5B /* Stash */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D56F8F772EBCB8FB0094ED5B /* Build configuration list for PBXNativeTarget "BookApp" */;
+			buildConfigurationList = D56F8F772EBCB8FB0094ED5B /* Build configuration list for PBXNativeTarget "Stash" */;
 			buildPhases = (
 				D56F8F682EBCB8FB0094ED5B /* Sources */,
 				D56F8F692EBCB8FB0094ED5B /* Frameworks */,
@@ -61,13 +61,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D56F8F6E2EBCB8FB0094ED5B /* BookApp */,
+				D56F8F6E2EBCB8FB0094ED5B /* Stash */,
 			);
-			name = BookApp;
+			name = Stash;
 			packageProductDependencies = (
 			);
 			productName = BookApp;
-			productReference = D56F8F6C2EBCB8FB0094ED5B /* BookApp.app */;
+			productReference = D56F8F6C2EBCB8FB0094ED5B /* Stash.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D56F8F672EBCB8FB0094ED5B /* Build configuration list for PBXProject "BookApp" */;
+			buildConfigurationList = D56F8F672EBCB8FB0094ED5B /* Build configuration list for PBXProject "Stash" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D56F8F6B2EBCB8FB0094ED5B /* BookApp */,
+				D56F8F6B2EBCB8FB0094ED5B /* Stash */,
 			);
 		};
 /* End PBXProject section */
@@ -313,7 +313,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D56F8F672EBCB8FB0094ED5B /* Build configuration list for PBXProject "BookApp" */ = {
+		D56F8F672EBCB8FB0094ED5B /* Build configuration list for PBXProject "Stash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D56F8F752EBCB8FB0094ED5B /* Debug */,
@@ -322,7 +322,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D56F8F772EBCB8FB0094ED5B /* Build configuration list for PBXNativeTarget "BookApp" */ = {
+		D56F8F772EBCB8FB0094ED5B /* Build configuration list for PBXNativeTarget "Stash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D56F8F782EBCB8FB0094ED5B /* Debug */,
