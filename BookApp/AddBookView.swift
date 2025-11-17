@@ -187,7 +187,7 @@ struct BookCardView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color(.systemBackground))
         .cornerRadius(15)
-        .shadow(color: Color.black.opacity(0.08), radius: 5, x: 0, y: 3)
+        .shadow(color: Color.black.opacity(0.10), radius: 5, x: 0, y: 3)
         .padding(.horizontal)
     }
 }
@@ -204,9 +204,6 @@ struct BookPlaceholderView: View {
     }
 }
 
-// MARK: - Preview
-
 #Preview {
-    // La preview è necessaria per visualizzare la vista
     AddBookView()
 }

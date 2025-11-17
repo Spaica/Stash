@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct BookApp: App {
+struct Stash: App {
     @StateObject var libraryViewModel = LibraryViewModel()
     
     var body: some Scene {
