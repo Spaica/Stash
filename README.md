@@ -16,31 +16,31 @@ This is an iOS application developed using **SwiftUI** designed to allow users t
 ---
 
 ## Technology Stack
-| **Language** | Swift |
+ **Language**: Swift 
 
-| **UI Framework** | SwiftUI |
+**UI Framework**: SwiftUI
 
-| **Architecture** | MVVM (Model-View-ViewModel) |
+**Architecture**: MVVM (Model-View-ViewModel)
 
-| **Networking** | `URLSession` with `async/await` |
+**Networking**: `URLSession` with `async/await`
 
-| **Asynchronous Handling** | `Combine` Framework (for Debounce logic) |
+**Asynchronous Handling**: `Combine` Framework (for Debounce logic)
 
-| **Local Persistence**| `UserDefaults` and `Codable` |
+**Local Persistence**: `UserDefaults` and `Codable`
 
 ---
 
 ## Project Structure (MVVM)
-| `LibraryViewModel.swift` | ViewModel | Manages the persistent `savedBooks` array, handling `addBook()`, `removeBook()`, and persistence logic (`loadBooks`/`saveBooks`).
+`LibraryViewModel.swift` (ViewModel): Manages the persistent `savedBooks` array, handling `addBook()`, `removeBook()`, and persistence logic (`loadBooks`/`saveBooks`).
 
-| `BookViewModel.swift` | ViewModel | Manages search state, loading indicators, and calls the `APIService`. |
+`BookViewModel.swift` (ViewModel): Manages search state, loading indicators, and calls the `APIService`.
 
-| `Books.swift` | Model | Defines all data structures (`Book`, `Info`, `Links`, etc.) conforming to `Codable`. |
+`Books.swift` (Model): Defines all data structures (`Book`, `Info`, `Links`, etc.) conforming to `Codable`.
 
-| `APIService.swift` | Service/Model | Handles URL construction and execution of the asynchronous API request. |
+`APIService.swift` (Service/Model): Handles URL construction and execution of the asynchronous API request.
 
-| `LibraryView.swift` | View | Displays the saved books and manages the presentation of the `AddBookView` modal. |
+`LibraryView.swift` (View): Displays the saved books and manages the presentation of the `AddBookView` modal.
 
-| `AddBookView.swift` | View | Contains the search bar and implements the search debounce logic. |
+`AddBookView.swift` (View): Contains the search bar and implements the search debounce logic.
 
-| `BookDetailsView.swift` / `BookDetails2View.swift` | View | Display book details and provide buttons for adding or removing the book from the library. |
+`BookDetailsView.swift` / `BookDetails2View.swift` (View): Display book details and provide buttons for adding or removing the book from the library.
