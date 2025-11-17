@@ -4,7 +4,7 @@ This is an iOS application developed using **SwiftUI** designed to allow users t
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 * **Advanced Search & Debounce:** The search covers all fields (Title, Author, ISBN) and employs a **Debounce** mechanism (0.5s delay) using Combine to prevent API overload while the user types.
 * **Local Data Persistence:** Saved books are stored persistently on the device between sessions using **`UserDefaults`** and the **`Codable`** protocol.
@@ -15,7 +15,7 @@ This is an iOS application developed using **SwiftUI** designed to allow users t
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 | **Language** | Swift |
 | **UI Framework** | SwiftUI |
 | **Architecture** | MVVM (Model-View-ViewModel) |
@@ -25,7 +25,7 @@ This is an iOS application developed using **SwiftUI** designed to allow users t
 
 ---
 
-## 📂 Project Structure (MVVM)
+## Project Structure (MVVM)
 | `LibraryViewModel.swift` | ViewModel | Manages the persistent `savedBooks` array, handling `addBook()`, `removeBook()`, and persistence logic (`loadBooks`/`saveBooks`). |
 | `BookViewModel.swift` | ViewModel | Manages search state, loading indicators, and calls the `APIService`. |
 | `Books.swift` | Model | Defines all data structures (`Book`, `Info`, `Links`, etc.) conforming to `Codable`. |
